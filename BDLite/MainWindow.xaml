@@ -1,0 +1,78 @@
+﻿<Window x:Class="BDLite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BDLite"
+        mc:Ignorable="d"
+        Title="Договоры клиентов" Height="350" Width="600">
+    <DockPanel >
+        <TabControl >
+            <TabItem Header="Договоры">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                        <Button Click="Agreement_Add_Button_Click">Добавить</Button>
+                        <Button Click="Agreement_Update_Button_Click">Редактировать</Button>
+                        <Button Click="Agreement_Delete_Button_Click">Удалить</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgAgreement" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding PersonShifer}"/>
+                            <DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Header="Номер договора" Binding="{Binding Number}"/>
+                            <DataGridTextColumn Header="Дата заключения договора" Binding="{Binding DataOpen}"/>
+                            <DataGridTextColumn Header="Дата закрытия договора" Binding="{Binding DataClose}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Клиент">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                        <Button Click="Person_Add_Button_Click">Добавить</Button>
+                        <Button Click="Person_Update_Button_Click">Редактировать</Button>
+                        <Button Click="Person_Delete_Button_Click">Удалить</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgPerson" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Шифр клиента" Width="120" Binding="{Binding Shifer}"/>
+                            <DataGridTextColumn Header="Инн" Width="100" Binding="{Binding Inn}"/>
+                            <DataGridTextColumn Header="Тип клиента" Width="200" Binding="{Binding Type}"/>
+                            <DataGridTextColumn Header="Дата регистрации клиента" Binding="{Binding Data}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Статус договора">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                        <Button Click="StatusAgreement_Add_Button_Click">Добавить</Button>
+                        <Button Click="StatusAgreement_Update_Button_Click">Редактировать</Button>
+                        <Button Click="StatusAgreement_Delete_Button_Click">Удалить</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgStatusAgreement" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Статус договора" Binding="{Binding Status}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Тип договора">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                        <Button Click="TypeAgreement_Add_Button_Click">Добавить</Button>
+                        <Button Click="TypeAgreement_Update_Button_Click">Редактировать</Button>
+                        <Button Click="TypeAgreement_Delete_Button_Click">Удалить</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgTypeAgreement" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Тип договора" Binding="{Binding Type}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
